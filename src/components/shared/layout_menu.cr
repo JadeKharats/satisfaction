@@ -2,34 +2,36 @@ class Shared::LayoutMenu < BaseComponent
   needs user : User
   def render
     tag("aside", class: "column is-2 is-narrow-mobile is-fullheight section is-hidden-mobile") do
-      tag("p", class: "menu-label") do
-        text "General"
-      end
-      ul(class: "menu-list") do
-        li do
-          a "DashBoard", href: "/"
+      if user.admin?
+        tag("p", class: "menu-label") do
+          text "General"
         end
-      end
-      tag("p", class: "menu-label") do
-        text "Formations"
-      end
-      ul(class: "menu-list") do
-        li do
-          a "Creer", href: "/"
+        ul(class: "menu-list") do
+          li do
+            a "DashBoard", href: "/"
+          end
         end
-        li do
-          a "Liste", href: "/"
+        tag("p", class: "menu-label") do
+          text "Formations"
         end
-      end
-      tag("p", class: "menu-label") do
-        text "Formateurs"
-      end
-      ul(class: "menu-list") do
-        li do
-          a "Creer", href: "/"
+        ul(class: "menu-list") do
+          li do
+            a "Creer", href: "/"
+          end
+          li do
+            a "Liste", href: "/"
+          end
         end
-        li do
-          a "Liste", href: "/"
+        tag("p", class: "menu-label") do
+          text "Formateurs"
+        end
+        ul(class: "menu-list") do
+          li do
+            a "Creer", href: "/"
+          end
+          li do
+            a "Liste", href: "/"
+          end
         end
       end
       tag("p", class: "menu-label") do
