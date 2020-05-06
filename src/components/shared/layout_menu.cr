@@ -16,23 +16,23 @@ class Shared::LayoutMenu < BaseComponent
         end
         ul(class: "menu-list") do
           li do
-            a "Creer", href: "/"
+            link "Créer", to: Sessions::New
           end
           li do
-            a "Liste", href: "/"
+            link "Liste", to: Sessions::Index
           end
         end
-        tag("p", class: "menu-label") do
-          text "Formateurs"
-        end
-        ul(class: "menu-list") do
-          li do
-            a "Creer", href: "/"
-          end
-          li do
-            a "Liste", href: "/"
-          end
-        end
+        # tag("p", class: "menu-label") do
+        #   text "Formateurs"
+        # end
+        # ul(class: "menu-list") do
+        #   li do
+        #     a "Creer", href: "/"
+        #   end
+        #   li do
+        #     a "Liste", href: "/"
+        #   end
+        # end
       end
       tag("p", class: "menu-label") do
         text "Profile"
