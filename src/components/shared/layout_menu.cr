@@ -22,17 +22,14 @@ class Shared::LayoutMenu < BaseComponent
             link "Liste", to: Sessions::Index
           end
         end
-        # tag("p", class: "menu-label") do
-        #   text "Formateurs"
-        # end
-        # ul(class: "menu-list") do
-        #   li do
-        #     a "Creer", href: "/"
-        #   end
-        #   li do
-        #     a "Liste", href: "/"
-        #   end
-        # end
+        tag("p", class: "menu-label") do
+          text "Utilisateurs"
+        end
+        ul(class: "menu-list") do
+          li do
+            link "Liste", Users::Index
+          end
+        end
       end
       tag("p", class: "menu-label") do
         text "Profile"
