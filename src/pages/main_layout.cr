@@ -28,13 +28,12 @@ abstract class MainLayout
 
     html lang: "en" do
       mount Shared::LayoutHead.new(page_title: page_title, context: context)
-
       body do
         tag("section", class: "main-content columns is-fullheight") do
-          mount Shared::FlashMessages.new(context.flash)
           mount Shared::LayoutMenu.new(current_user)
           div(class: "container column is-10 ") do
             div(class: "section") do
+              mount Shared::FlashMessages.new(context.flash)
               content
             end
           end
