@@ -30,16 +30,16 @@ abstract class MainLayout
       mount Shared::LayoutHead.new(page_title: page_title, context: context)
 
       body do
-        mount Shared::FlashMessages.new(context.flash)
-        render_signed_in_user
-        content
+        tag("section", class: "main-content columns is-fullheight") do
+          mount Shared::FlashMessages.new(context.flash)
+          mount Shared::LayoutMenu.new(current_user)
+          div(class: "container column is-10 ") do
+            div(class: "section") do
+              content
+            end
+          end
+        end
       end
     end
-  end
-
-  private def render_signed_in_user
-    text current_user.email
-    text " - "
-    link "Sign out", to: SignIns::Delete, flow_id: "sign-out-button"
   end
 end
