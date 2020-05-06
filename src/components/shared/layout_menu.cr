@@ -42,7 +42,7 @@ class Shared::LayoutMenu < BaseComponent
           link "Moi", to: Me::Show
         end
         li do
-          link "Sortir", to: SignIns::Delete
+          link "Sortir", to: SignIns::Delete, flow_id: "sign-out-button"
         end
       end
     end
