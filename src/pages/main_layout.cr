@@ -33,7 +33,7 @@ abstract class MainLayout
           mount Shared::LayoutMenu.new(current_user)
           div(class: "container column is-10 ") do
             div(class: "section") do
-              mount Shared::FlashMessages.new(context.flash)
+              # mount Shared::FlashMessages.new(context.flash)
               content
             end
           end

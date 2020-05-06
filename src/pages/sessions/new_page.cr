@@ -12,7 +12,7 @@ class Sessions::NewPage < MainLayout
       # Edit fields in src/components/sessions/form_fields.cr
       mount Sessions::FormFields.new(op)
 
-      submit "Créer", data_disable_with: "Création..."
+      submit "Créer", data_disable_with: "Création...", class: "button is-link"
     end
   end
 end

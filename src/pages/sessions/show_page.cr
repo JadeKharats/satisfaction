@@ -3,19 +3,38 @@ class Sessions::ShowPage < MainLayout
   quick_def page_title, "Session with id: #{@session.id}"
 
   def content
-    link "Back to all Sessions", Sessions::Index
-    h1 "Session with id: #{@session.id}"
-    render_actions
-    render_session_fields
+    div(class: "card") do
+      render_header
+      render_content
+      render_footer
+    end
   end
 
-  def render_actions
-    section do
-      link "Edit", Sessions::Edit.with(@session.id)
-      text " | "
-      link "Delete",
+  private def render_header
+    tag("header", class: "card-header") do
+      tag("p", class: "card-header-title") do
+        text "#{@session.intitule}"
+      end
+    end
+  end
+
+  private def render_content
+    div class: "card-content" do
+      div class: "content" do
+        render_session_fields
+      end
+    end
+  end
+
+  private def render_footer
+    tag("footer", class: "card-footer") do
+      link "Modifier",
+        Sessions::Edit.with(@session.id),
+        class: "card-footer-item"
+      link "Supprimer",
         Sessions::Delete.with(@session.id),
-        data_confirm: "Are you sure?"
+        data_confirm: "Are you sure?",
+        class: "card-footer-item"
     end
   end
 
@@ -26,16 +45,12 @@ class Sessions::ShowPage < MainLayout
         strong @session.formateur.to_s
       end
       li do
-        text "begin_date: "
+        text "Date de début: "
         strong @session.begin_date.to_s
       end
       li do
-        text "end_date: "
+        text "Date de fin: "
         strong @session.end_date.to_s
-      end
-      li do
-        text "intitule: "
-        strong @session.intitule.to_s
       end
       li do
         text "uid: "

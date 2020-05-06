@@ -12,7 +12,7 @@ class Shared::LayoutMenu < BaseComponent
           end
         end
         tag("p", class: "menu-label") do
-          text "Formations"
+          text "Sessions"
         end
         ul(class: "menu-list") do
           li do
