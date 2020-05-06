@@ -2,6 +2,7 @@ class Me::ShowPage < MainLayout
   def content
     h1 "This is your profile"
     h3 "Email:  #{@current_user.email}"
+    h3 "Admin", class: "admin" if @current_user.admin?
     helpful_tips
   end
 
