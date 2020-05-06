@@ -1,22 +1,29 @@
 class Me::ShowPage < MainLayout
   def content
-    h1 "This is your profile"
-    h3 "Email:  #{@current_user.email}"
-    h3 "Admin", class: "admin" if @current_user.admin?
-    helpful_tips
-  end
-
-  private def helpful_tips
-    h3 "Next, you may want to:"
-    ul do
-      li { link_to_authentication_guides }
-      li "Modify this page: src/pages/me/show_page.cr"
-      li "Change where you go after sign in: src/actions/home/index.cr"
+    div(class: "card") do
+      render_profil
     end
   end
 
-  private def link_to_authentication_guides
-    a "Check out the authentication guides",
-      href: "https://luckyframework.org/guides/authentication"
+  private def render_profil
+    div(class: "card-content") do
+      div(class: "media") do
+        div(class: "media-left") do
+          tag("figure", class: "image is-48x48") do
+            img(src: "https://bulma.io/images/placeholders/96x96.png")
+          end
+        end
+        div(class: "media-content") do
+          tag("p", class: "title is-4") do
+            text "#{@current_user.email}"
+          end
+          if @current_user.admin?
+            tag("p", class: "subtitle is-6", flow_id: "Admin-flag") do
+              text "Admin"
+            end
+          end
+        end
+      end
+    end
   end
 end
