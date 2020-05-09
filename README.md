@@ -7,6 +7,7 @@ This is a project written using [Lucky](https://luckyframework.org). Enjoy!
 1. [Install required dependencies](https://luckyframework.org/guides/getting-started/installing#install-required-dependencies)
 1. Update database settings in `config/database.cr`
 1. Run `script/setup`
+1. `cp .env.test .env` and modify for your dev
 1. Run `lucky dev` to start the app
 
 ### Learning Lucky
