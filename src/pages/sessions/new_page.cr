@@ -3,7 +3,7 @@ class Sessions::NewPage < MainLayout
   quick_def page_title, "Créer une session"
 
   def content
-    h1 "Nouvelle Session"
+    h1 I18n.t("sessions.new.title")
     render_session_form(@operation)
   end
 
@@ -12,7 +12,9 @@ class Sessions::NewPage < MainLayout
       # Edit fields in src/components/sessions/form_fields.cr
       mount Sessions::FormFields.new(op)
 
-      submit "Créer", data_disable_with: "Création...", class: "button is-link"
+      submit I18n.t("sessions.new.submit"),
+        data_disable_with: I18n.t("sessions.new.data_disable_with"),
+        class: "button is-link"
     end
   end
 end

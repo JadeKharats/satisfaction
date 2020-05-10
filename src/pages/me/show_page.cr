@@ -19,7 +19,7 @@ class Me::ShowPage < MainLayout
           end
           if @current_user.admin?
             tag("p", class: "subtitle is-6", flow_id: "Admin-flag") do
-              text "Admin"
+              text I18n.t("me.admin")
             end
           end
         end

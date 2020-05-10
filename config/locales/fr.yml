@@ -1,0 +1,53 @@
+fr:
+  app:
+    name: "Satisfaction"
+    welcome: "Bienvenue"
+  menu:
+    general: 
+      title: "Général"
+      board: "DashBoard"
+    sessions:
+      title: "Sessions"
+      add: "Créer"
+      list: "Liste"
+    attendees:
+      title: "Participants"
+      add: "Créer"
+      list: "Liste"
+    users:
+      title: "Utilisateurs"
+      list: "Liste"
+    profil:
+      title: "Profile"
+      me: "Moi"
+      logout: "Quitter"
+  me:
+    admin: "Administrateur"
+  sessions:
+    new:
+      title: "Créer une nouvelle session de formation"
+      submit: "Créer"
+      data_disable_with: "Création ..."
+    index:
+      title: "Toutes les sessions de formation"
+      link: ""
+      attendees:
+        zero: "aucun participant"
+        one: "1 participant"
+        other: "%{count} participants"
+    edit:
+      title: "Modification de la session"
+      submit: "Mettre à jour"
+      data_disable_with: "Mise à jour..."
+    show:
+      session:
+        edit: "Modifier"
+        delete: "Supprimer"
+        details:
+          professor: "Formateur"
+          begin_date: "Date de début"
+          end_date: "Date de fin"
+          uid: "Code d'accès de la session"
+      attendees:
+        title: "Participants"
+        add: "Ajouter"

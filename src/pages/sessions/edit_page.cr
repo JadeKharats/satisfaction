@@ -1,10 +1,10 @@
 class Sessions::EditPage < MainLayout
   needs operation : SaveSession
   needs session : Session
-  quick_def page_title, "Modification de la session #{@session.intitule}"
+  quick_def page_title, I18n.t("sessions.edit.title")
 
   def content
-    h1 "Modification de la session #{@session.intitule}"
+    h1 I18n.t("sessions.edit.title")
     render_session_form(@operation)
   end
 
@@ -13,7 +13,7 @@ class Sessions::EditPage < MainLayout
       # Edit fields in src/components/sessions/form_fields.cr
       mount Sessions::FormFields.new(op)
 
-      submit "Mettre à jour", data_disable_with: "Mise à jour..."
+      submit I18n.t("sessions.edit.submit"), data_disable_with: I18n.t("sessions.edit.data_disable_with")
     end
   end
 end

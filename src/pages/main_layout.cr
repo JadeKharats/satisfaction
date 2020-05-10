@@ -20,13 +20,13 @@ abstract class MainLayout
   #
   # This will force pages to define their own 'page_title' method.
   def page_title
-    "Welcome"
+    I18n.t("app.welcome")
   end
 
   def render
     html_doctype
 
-    html lang: "en" do
+    html lang: "fr" do
       mount Shared::LayoutHead.new(page_title: page_title, context: context)
       body do
         tag("section", class: "main-content columns is-fullheight") do

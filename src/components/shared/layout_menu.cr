@@ -4,53 +4,53 @@ class Shared::LayoutMenu < BaseComponent
     tag("aside", class: "column is-2 is-narrow-mobile is-fullheight section is-hidden-mobile") do
       if user.admin?
         tag("p", class: "menu-label") do
-          text "General"
+          text I18n.t("menu.general.title")
         end
         ul(class: "menu-list") do
           li do
-            a "DashBoard", href: "/"
+            a I18n.t("menu.general.board"), href: "/"
           end
         end
         tag("p", class: "menu-label") do
-          text "Sessions"
+          text I18n.t("menu.sessions.title")
         end
         ul(class: "menu-list") do
           li do
-            link "Créer", to: Sessions::New
+            link I18n.t("menu.sessions.add"), to: Sessions::New
           end
           li do
-            link "Liste", to: Sessions::Index
+            link I18n.t("menu.sessions.list"), to: Sessions::Index
           end
         end
         tag("p", class: "menu-label") do
-          text "Participants"
+          text I18n.t("menu.attendees.title")
         end
         ul(class: "menu-list") do
           li do
-            link "Créer", to: Participants::New
+            link I18n.t("menu.attendees.add"), to: Participants::New
           end
           li do
-            link "Liste", to: Participants::Index
+            link I18n.t("menu.attendees.list"), to: Participants::Index
           end
         end
         tag("p", class: "menu-label") do
-          text "Utilisateurs"
+          text I18n.t("menu.users.title")
         end
         ul(class: "menu-list") do
           li do
-            link "Liste", Users::Index
+            link I18n.t("menu.users.list"), Users::Index
           end
         end
       end
       tag("p", class: "menu-label") do
-        text "Profile"
+        text I18n.t("menu.profil.title")
       end
       ul(class: "menu-list") do
         li do
-          link "Moi", to: Me::Show
+          link I18n.t("menu.profil.me"), to: Me::Show
         end
         li do
-          link "Sortir", to: SignIns::Delete, flow_id: "sign-out-button"
+          link I18n.t("menu.profil.logout"), to: SignIns::Delete, flow_id: "sign-out-button"
         end
       end
     end

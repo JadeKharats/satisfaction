@@ -29,3 +29,6 @@ dependencies:
   jwt:
     github: crystal-community/jwt
     version: ~> 1.4.0
+  i18n:
+    github: vladfaust/i18n.cr
+    version: ~> 0.1.1

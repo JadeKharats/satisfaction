@@ -1,6 +1,6 @@
 class Sessions::ShowPage < MainLayout
   needs session : Session
-  quick_def page_title, "Session with id: #{@session.id}"
+  quick_def page_title, "#{@session.intitule}"
 
   def content
     render_formation_informations
@@ -27,7 +27,7 @@ class Sessions::ShowPage < MainLayout
 
   private def render_participants_footer
     tag("footer", class: "card-footer") do
-      link "Ajouter",
+      link I18n.t("sessions.show.attendees.add"),
         Participants::New.with(session_id: @session.id),
         class: "card-footer-item"
     end
@@ -37,7 +37,7 @@ class Sessions::ShowPage < MainLayout
   private def render_participants_header
     tag("header", class: "card-header") do
       tag("p", class: "card-header-title") do
-        text "Participants"
+        text I18n.t("sessions.show.attendees.title")
       end
     end
   end
@@ -68,10 +68,10 @@ class Sessions::ShowPage < MainLayout
 
   private def render_footer
     tag("footer", class: "card-footer") do
-      link "Modifier",
+      link I18n.t("sessions.show.session.edit"),
         Sessions::Edit.with(@session.id),
         class: "card-footer-item"
-      link "Supprimer",
+      link I18n.t("sessions.show.session.delete"),
         Sessions::Delete.with(@session.id),
         data_confirm: "Are you sure?",
         class: "card-footer-item"
@@ -79,21 +79,35 @@ class Sessions::ShowPage < MainLayout
   end
 
   def render_session_fields
-    ul do
-      li do
-        text "formateur: "
+    div class: "columns" do
+      div class: "column" do
+        text I18n.t("sessions.show.session.details.professor")
+      end
+      div class: "column" do
         strong @session.formateur.to_s
       end
-      li do
-        text "Date de début: "
+    end
+    div class: "columns" do
+      div class: "column" do
+        text I18n.t("sessions.show.session.details.begin_date")
+      end
+      div class: "column" do
         strong @session.begin_date.to_s
       end
-      li do
-        text "Date de fin: "
+    end
+    div class: "columns" do
+      div class: "column" do
+        text I18n.t("sessions.show.session.details.end_date")
+      end
+      div class: "column" do
         strong @session.end_date.to_s
       end
-      li do
-        text "uid: "
+    end
+    div class: "columns" do
+      div class: "column" do
+        text I18n.t("sessions.show.session.details.uid")
+      end
+      div class: "column" do
         strong @session.uid.to_s
       end
     end

@@ -44,6 +44,10 @@ shards:
     github: luckyframework/habitat
     version: 0.4.3
 
+  i18n:
+    github: vladfaust/i18n.cr
+    version: 0.1.1
+
   jwt:
     github: crystal-community/jwt
     version: 1.4.0
