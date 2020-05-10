@@ -4,7 +4,7 @@ class Session < BaseModel
     column begin_date : Time
     column end_date : Time
     column intitule : String
-    column uid : Int16
+    column uid : String
   end
 
   def complete_name

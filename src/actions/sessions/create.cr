@@ -1,6 +1,6 @@
 class Sessions::Create < BrowserAction
   route do
-    SaveSession.create(params, uid: Random::Secure.rand(0..32767).to_i16) do |operation, session|
+    SaveSession.create(params, uid: Random.new.hex(3)) do |operation, session|
       if session
         flash.success = "The record has been saved"
         redirect Show.with(session.id)
