@@ -90,9 +90,9 @@ class Sessions::ShowPage < MainLayout
   end
 
   def render_session_fields
-    mount Sessions::Information::Row.new("sessions.show.session.details.professor", @session.formateur.to_s)
-    mount Sessions::Information::Row.new("sessions.show.session.details.begin_date", @session.begin_date.to_s)
-    mount Sessions::Information::Row.new("sessions.show.session.details.end_date", @session.end_date.to_s)
-    mount Sessions::Information::Row.new("sessions.show.session.details.uid", @session.uid.to_s)
+    mount Sessions::Information::Row.new("sessions.show.session.details.professor", @session.formateur)
+    mount Sessions::Information::Row.new("sessions.show.session.details.begin_date", @session.format_begin_date)
+    mount Sessions::Information::Row.new("sessions.show.session.details.end_date", @session.format_end_date)
+    mount Sessions::Information::Row.new("sessions.show.session.details.uid", @session.uid)
   end
 end
