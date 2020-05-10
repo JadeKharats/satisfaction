@@ -18,42 +18,8 @@ class Sessions::ShowPage < MainLayout
   private def render_participants_content
     div class: "card-content" do
       div class: "content" do
-        tag "table", class: "table" do
-          tag "thead" do
-            tag "tr" do
-              tag "td" do
-                text "Nom complet"
-              end
-              tag "td" do
-                text "code individuel"
-              end
-              tag "td" do
-                text "Actions"
-              end
-            end
-          end
-          tag "tbody" do
-            @session.participants.each do |participant|
-              tag "tr" do
-                tag "td" do
-                  text "#{participant.complete_name}"
-                end
-                tag "td" do
-                  text "#{participant.code}"
-                end
-                tag "td" do
-                  div class: "field has-addons" do
-                    tag "p", class: "control" do
-                      link "Modifier", Participants::Edit.with(participant.id), class: "button is-primary"
-                    end
-                    tag "p", class: "control" do
-                      link "Supprimer", Participants::Delete.with(participant.id), class: "button is-danger"
-                    end
-                  end
-                end
-              end
-            end
-          end
+        @session.participants.each do |participant|
+          mount Participants::Row.new(participant)
         end
       end
     end
