@@ -79,37 +79,9 @@ class Sessions::ShowPage < MainLayout
   end
 
   def render_session_fields
-    div class: "columns" do
-      div class: "column" do
-        text I18n.t("sessions.show.session.details.professor")
-      end
-      div class: "column" do
-        strong @session.formateur.to_s
-      end
-    end
-    div class: "columns" do
-      div class: "column" do
-        text I18n.t("sessions.show.session.details.begin_date")
-      end
-      div class: "column" do
-        strong @session.begin_date.to_s
-      end
-    end
-    div class: "columns" do
-      div class: "column" do
-        text I18n.t("sessions.show.session.details.end_date")
-      end
-      div class: "column" do
-        strong @session.end_date.to_s
-      end
-    end
-    div class: "columns" do
-      div class: "column" do
-        text I18n.t("sessions.show.session.details.uid")
-      end
-      div class: "column" do
-        strong @session.uid.to_s
-      end
-    end
+    mount Sessions::Information::Row.new("sessions.show.session.details.professor", @session.formateur.to_s)
+    mount Sessions::Information::Row.new("sessions.show.session.details.begin_date", @session.begin_date.to_s)
+    mount Sessions::Information::Row.new("sessions.show.session.details.end_date", @session.end_date.to_s)
+    mount Sessions::Information::Row.new("sessions.show.session.details.uid", @session.uid.to_s)
   end
 end
