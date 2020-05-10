@@ -1,8 +1,5 @@
 class Questionnaire < BaseModel
   table do
-    column session_id : Int64
-    column stagiaire_nom : String
-    column stagiaire_fonction : String
     column orga_accueil : Int16
     column orga_salle_formation : Int16
     column orga_moyens_technique : Int16
@@ -24,5 +21,6 @@ class Questionnaire < BaseModel
     column global_comment_positif : String
     column globale_comment_dix : String
     column globale_attente : Bool
+    belongs_to participant : Participant
   end
 end

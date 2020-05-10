@@ -4,6 +4,7 @@ class Participant < BaseModel
     column nom : String
     column code : String
     belongs_to session : Session
+    has_one questionnaire : Questionnaire?
   end
 
   def complete_name
