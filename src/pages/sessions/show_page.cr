@@ -18,6 +18,17 @@ class Sessions::ShowPage < MainLayout
   private def render_participants_content
     div class: "card-content" do
       div class: "content" do
+        div class: "columns" do
+          div class: "column is-half" do
+            strong "Nom complet"
+          end
+          div class: "column" do
+            strong "Code individuel"
+          end
+          div class: "column" do
+            strong "Actions"
+          end
+        end
         @session.participants.each do |participant|
           mount Participants::Row.new(participant)
         end

@@ -12,10 +12,10 @@ class Participants::Row < BaseComponent
       div class: "column" do
         div class: "field has-addons" do
           tag "p", class: "control" do
-            link "Modifier", Participants::Edit.with(participant.id), class: "button is-primary"
+            link "Modifier", Participants::Edit.with(participant.id), class: "button is-primary is-small"
           end
           tag "p", class: "control" do
-            link "Supprimer", Participants::Delete.with(participant.id), class: "button is-danger"
+            link "Supprimer", Participants::Delete.with(participant.id), class: "button is-danger is-small"
           end
         end
       end
