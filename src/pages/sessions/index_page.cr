@@ -10,7 +10,7 @@ class Sessions::IndexPage < MainLayout
   def render_sessions
     @sessions.each do |session|
       div class: "card" do
-        link session.complete_name, Sessions::Show.with(session)
+        link "#{session.complete_name} ( #{session.participants.size} participants)  ", Sessions::Show.with(session)
       end
     end
   end

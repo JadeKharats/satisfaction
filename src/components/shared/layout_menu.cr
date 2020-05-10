@@ -23,6 +23,17 @@ class Shared::LayoutMenu < BaseComponent
           end
         end
         tag("p", class: "menu-label") do
+          text "Participants"
+        end
+        ul(class: "menu-list") do
+          li do
+            link "Créer", to: Participants::New
+          end
+          li do
+            link "Liste", to: Participants::Index
+          end
+        end
+        tag("p", class: "menu-label") do
           text "Utilisateurs"
         end
         ul(class: "menu-list") do

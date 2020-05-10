@@ -5,6 +5,8 @@ class Session < BaseModel
     column end_date : Time
     column intitule : String
     column uid : String
+
+    has_many participants : Participant
   end
 
   def complete_name
