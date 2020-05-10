@@ -26,6 +26,11 @@ class Sessions::ShowPage < MainLayout
   end
 
   private def render_participants_footer
+    tag("footer", class: "card-footer") do
+      link "Ajouter",
+        Participants::New.with(session_id: @session.id),
+        class: "card-footer-item"
+    end
 
   end
 
